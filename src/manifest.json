@@ -1,0 +1,17 @@
+{
+  "name": "Emoty",
+  "version": "0.1",
+  "description": "Emoty",
+  "manifest_version": 2,
+  "icons": {
+    "128": "images/icons/128.png",
+    "48": "images/icons/48.png",
+    "16": "images/icons/16.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icons/19.png",
+    "default_title": "Emoty",
+    "default_popup": "popup.html"
+    },
+  "permissions": [ "http://*/*", "https://*/*", "clipboardWrite"]
+}
