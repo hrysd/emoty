@@ -1,4 +1,4 @@
-# Emoty
+# :zap: Emoty :zap:
 
 This is [Emoji-Cheat-Sheet.com](http://www.emoji-cheat-sheet.com/) for Chrome Extention.
 
