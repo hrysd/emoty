@@ -9,7 +9,7 @@ body {
 
 img {
   margin: 7px;
-  border: 2px solid #666666;
+  border: 2px solid rgba(0, 0, 0, 0);
   vertical-align: middle;
   width: 30px;
   height: auto;
@@ -21,14 +21,30 @@ img:hover {
   border: 4px solid orange;
 }
 
-#header {
-  position: fixed;
+#images > p {
+  position: absolute;
+  color: black;
+  height: 30px;
+  text-align: center;
+  display: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 0px 0px 10px #000000;
 }
-#title {
-}
+
 #discription {
   display: block;
+  font-weight: bold;
   float: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
 }
 
 #notice {
