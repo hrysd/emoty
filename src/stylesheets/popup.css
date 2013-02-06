@@ -19,6 +19,17 @@ body {
   margin-right: 10px;
 }
 
+#header > p {
+  color: gray;
+}
+
+.title {
+  color: black;
+  font-weight: bold;
+  margin-right: 40px;
+}
+
+
 img {
   margin: 7px;
   border: 2px solid rgba(0, 0, 0, 0);
