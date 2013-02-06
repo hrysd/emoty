@@ -2,7 +2,7 @@
 
 This is [Emoji-Cheat-Sheet.com](http://www.emoji-cheat-sheet.com/) for Chrome Extention.
 
-You just click emoji that want to copy.
+Click the emoji and it will be copied to your clipboard.
 ![img](http://cdn-ak.f.st-hatena.com/images/fotolife/h/hrysd/20130204/20130204182940.png)
 
 [Download from here!](https://chrome.google.com/webstore/detail/emoty/kgljgnbhcigffgoifhjbbifhbdkapmgm?hl=ja&gl=JP)
