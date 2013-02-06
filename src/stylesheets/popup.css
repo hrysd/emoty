@@ -7,6 +7,18 @@ body {
   background: url('../images/stucco.png')
 }
 
+#header {
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header > ul > li {
+  float: left;
+  list-style-type: none;
+  margin-right: 10px;
+}
+
 img {
   margin: 7px;
   border: 2px solid rgba(0, 0, 0, 0);
@@ -21,6 +33,9 @@ img:hover {
   border: 4px solid orange;
 }
 
+#images {
+  margin-top: 50px;
+}
 #images > p {
   position: absolute;
   color: black;
