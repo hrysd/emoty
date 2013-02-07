@@ -2,7 +2,7 @@ $(function() {
     function createTip(index, value) {
         var p;
         p = $('<p>')
-          .addClass('tips_' + index)
+          .attr({ id: 'tips_' + index })
           .css({ display: 'none'})
           .text(value);
         return p;
@@ -11,12 +11,18 @@ $(function() {
     function createImg(index, value) {
         var image;
         image = $('<img>')
-          .addClass('image_' + index)
           .attr({
+            id:  'image_' + index,
             src: 'images/emojis/' + value + '.png',
             alt: value
           });
         return image;
+    }
+
+    function insertTipAndImage(index, value) {
+        var $tips  = createTip(index, value);
+        var $image = createImg(index, value);
+        $('#images').append($tips).append($image);
     }
 
     function createCategory(value, tag) {
@@ -33,10 +39,6 @@ $(function() {
         return $category;
     }
 
-    function insertTipAndImage(tip, image) {
-        $('#images').append(tip).append(image);
-    }
-
     function insertCategory(category) {
         var categoryNav   = createCategory(category, '<li>');
         var categoryTitle = createCategory(category, '<h3>');
@@ -44,38 +46,48 @@ $(function() {
         $('#images').append(categoryTitle);
     }
 
+    function findTipsByImageId($image) {
+        var num   = $image.attr('id').split('_')[1];
+        var $tips = $('#tips_' + num);
+
+        return $tips;
+    }
+
     $.each(Emoty.emojis, function(category, emojis) {
         insertCategory(category);
 
         $.each(emojis, function(index, value) {
-            var tip = createTip(index, value);
-            var img = createImg(index, value);
-            insertTipAndImage(tip, img);
-
-            $(img).click(function(e) {
-                Emoty.copy(":" + $(this).attr('alt') + ":");
-                $('#notice').fadeIn('normal', function(){
-                    $('#notice').fadeOut();
-                });
-            });
-
-            $(img).mouseenter(function() {
-                $(tip).fadeIn(100)
-            }).mousemove(function(e) {
-                $(tip).css({
-                  'top': e.pageY - 40 + 'px',
-                  'left': e.pageX + 10 + 'px'
-                });
-            }).mouseleave(function(){
-                $(tip).fadeOut(100);
-            });
+            insertTipAndImage(index, value);
         });
+    });
 
-        $('#anchor_' + category).click(function(e){
-            var point = $('#' + category).offset().top;
-            $('html,body').animate({scrollTop: point});
+    $('#images img').on({
+        click: function(){
+            Emoty.copy(':' + $(this).attr('alt') + ':');
+            $('#notice').fadeIn('normal', function(){
+                $('#notice').fadeOut();
+            });
+        },
+        mouseenter: function(){
+            var $tips = findTipsByImageId($(this))
+            $tips.fadeIn(100);
+        },
+        mouseleave: function() {
+            var $tips = findTipsByImageId($(this))
+            $tips.fadeOut(100);
+        },
+        mousemove: function(e) {
+            var $tips = findTipsByImageId($(this))
+            $tips.css({
+              'top': e.pageY - 40 + 'px',
+              'left': e.pageX + 10 + 'px'
+            });
+        }
+    });
 
-            return false;
-        });
+    $('#header').on('click', 'li', function(){
+        var category = $('#' + $(this).text());
+        var point = category.offset().top;
+        $('html,body').animate({scrollTop: point});
     });
 });
