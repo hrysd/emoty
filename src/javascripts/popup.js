@@ -1,27 +1,27 @@
 $(function() {
-    function createTip(index, value) {
-        var p;
-        p = $('<p>')
-          .attr({ id: 'tips_' + index })
-          .css({ display: 'none'})
-          .text(value);
-        return p;
+    function createTip(value) {
+        var $p;
+        $p = $('<p>')
+            .attr({ id: 'tips-' + value })
+            .css({ display: 'none'})
+            .text(value);
+        return $p;
     }
 
-    function createImg(index, value) {
-        var image;
-        image = $('<img>')
-          .attr({
-            id:  'image_' + index,
-            src: 'images/emojis/' + value + '.png',
-            alt: value
-          });
-        return image;
+    function createImg(value) {
+        var $image;
+        $image = $('<img>')
+            .attr({
+              id:  'image-' + value,
+              src: 'images/emojis/' + value + '.png',
+              alt: value
+            });
+        return $image;
     }
 
-    function insertTipAndImage(index, value) {
-        var $tips  = createTip(index, value);
-        var $image = createImg(index, value);
+    function insertTipAndImage(value) {
+        var $tips  = createTip(value);
+        var $image = createImg(value);
         $('#images').append($tips).append($image);
     }
 
@@ -31,7 +31,7 @@ $(function() {
             .text(value);
 
         if (tag == '<li>') {
-            $category.attr({ id: 'anchor_' + value });
+            $category.attr({ id: 'anchor-' + value });
         } else {
             $category.attr({ id: value })
         }
@@ -46,9 +46,9 @@ $(function() {
         $('#images').append(categoryTitle);
     }
 
-    function findTipsByImageId($image) {
-        var num   = $image.attr('id').split('_')[1];
-        var $tips = $('#tips_' + num);
+    function findTipsByImage($image) {
+        var name  = $image.attr('id').split('-')[1];
+        var $tips = $('#tips-' + name);
 
         return $tips;
     }
@@ -57,7 +57,7 @@ $(function() {
         insertCategory(category);
 
         $.each(emojis, function(index, value) {
-            insertTipAndImage(index, value);
+            insertTipAndImage(value);
         });
     });
 
@@ -69,15 +69,15 @@ $(function() {
             });
         },
         mouseenter: function(){
-            var $tips = findTipsByImageId($(this))
+            var $tips = findTipsByImage($(this))
             $tips.fadeIn(100);
         },
         mouseleave: function() {
-            var $tips = findTipsByImageId($(this))
+            var $tips = findTipsByImage($(this))
             $tips.fadeOut(100);
         },
         mousemove: function(e) {
-            var $tips = findTipsByImageId($(this))
+            var $tips = findTipsByImage($(this))
             $tips.css({
               'top': e.pageY - 40 + 'px',
               'left': e.pageX + 10 + 'px'
