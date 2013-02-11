@@ -5,7 +5,53 @@ var Emoty = {
       clip.select();
       document.execCommand('copy');
   },
+  createTip: function(value) {
+      var $p;
+      $p = $('<p>')
+          .attr({ id: 'tips-' + value })
+          .css({ display: 'none'})
+          .text(value);
+      return $p;
+  },
+  createImage: function(value) {
+    var $image;
+    $image = $('<img>')
+        .attr({
+            id:  'image-' + value,
+            src: 'images/emojis/' + value + '.png',
+            alt: value
+        });
+    return $image;
+  },
+  insertTipAndImage: function(value) {
+      var $tips  = this.createTip(value);
+      var $image = this.createImage(value);
+      $('#images').append($tips).append($image);
+  },
+  createCategory: function(value, tag) {
+    var $category;
+    $category = $(tag).text(value);
 
+    if (tag == '<li>') {
+      $category.attr({ id: 'anchor-' + value });
+    } else {
+      $category.attr({ id: value });
+    }
+
+    return $category;
+  },
+  insertCategory: function(category) {
+    var categoryNav   = this.createCategory(category, '<li>');
+    var categoryTitle = this.createCategory(category, '<h3>');
+    $('#header > ul').append(categoryNav);
+    $('#images').append(categoryTitle);
+  },
+  findTipsByImage: function($image) {
+    var name  = $image.attr('id').split('-')[1];
+    var $tips = $('#tips-' + name);
+
+    return $tips;
+  },
   emojis: {
       people: [
           "bowtie",
