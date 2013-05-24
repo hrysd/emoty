@@ -48,4 +48,10 @@ $(function() {
             };
         });
     });
+
+    // Default focus setting
+    // ref) http://stackoverflow.com/questions/9646772/chrome-extension-popup-textarea-focus
+    setTimeout(function(){
+        $('#header .searcher input').focus();
+    }, 500);
 });
