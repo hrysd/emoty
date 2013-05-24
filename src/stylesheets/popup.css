@@ -13,6 +13,10 @@ body {
   position: relative;
 }
 
+#header > p > a {
+  outline: none;
+}
+
 #header .searcher {
   margin: 0 auto;
   width: 530px;
