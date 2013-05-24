@@ -41,7 +41,6 @@ $(function() {
         keyword = Emoty.escapeRegExp(keyword);
         $.each(Emoty.emojisIndex, function(imageId, imageHtmlId){
             var $elem = $('#' + imageHtmlId);
-            console.log($elem);
             if (imageId.match(keyword) !== null) {
                 $elem.show();
             } else {
