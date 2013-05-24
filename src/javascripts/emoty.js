@@ -17,11 +17,14 @@ var Emoty = {
     var $image;
     $image = $('<img>')
         .attr({
-            id:  'image-' + value,
+            id:  this.convertImageIdForHtml(value),
             src: 'images/emojis/' + value + '.png',
             alt: value
         });
     return $image;
+  },
+  convertImageIdForHtml: function(imageId) {
+    return 'image-' + imageId;
   },
   insertTipAndImage: function(value) {
       var $tips  = this.createTip(value);
@@ -51,6 +54,10 @@ var Emoty = {
     var $tips = $('#tips-' + name);
 
     return $tips;
+  },
+  // ref) https://developer.mozilla.org/ja/docs/JavaScript/Guide/Regular_Expressions
+  escapeRegExp: function(string) {
+    return string.replace(/([.*+?^=!:${}()|[\]\/\\])/g, "\\$1");
   },
   emojis: {
       people: [
@@ -929,5 +936,21 @@ var Emoty = {
           "small_red_triangle",
           "small_red_triangle_down",
           "shipit"
-      ]},
+      ]
+  },
 }
+
+Emoty.emojisIndex = (function(){
+  var merged = [];
+  $.each(Emoty.emojis, function(k, v){
+    merged = merged.concat(v);
+  });
+  merged.sort();
+
+  var index = {};
+  $.each(merged, function(k, v){
+    index[v] = Emoty.convertImageIdForHtml(v);
+  });
+
+  return index;
+}());
