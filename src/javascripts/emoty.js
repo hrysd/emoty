@@ -945,10 +945,9 @@ Emoty.emojisIndex = (function(){
   $.each(Emoty.emojis, function(k, v){
     merged = merged.concat(v);
   });
-  merged.sort();
 
   var index = {};
-  $.each(merged, function(k, v){
+  $.each(merged, function(i, v){
     index[v] = Emoty.convertImageIdForHtml(v);
   });
 
