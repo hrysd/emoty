@@ -13,6 +13,16 @@ body {
   position: relative;
 }
 
+#header .searcher {
+  margin: 0 auto;
+  width: 530px;
+  text-align: center;
+}
+
+#header .searcher > input {
+  width: 524px;
+}
+
 #header > ul {
   width: 530px;
   background: black;

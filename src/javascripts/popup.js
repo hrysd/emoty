@@ -35,4 +35,17 @@ $(function() {
         var point = category.offset().top;
         $('html,body').animate({scrollTop: point});
     });
+
+    $('#header .searcher input').on('keyup', {}, function(evt){
+        var keyword = $(this).val();
+        keyword = Emoty.escapeRegExp(keyword);
+        $.each(Emoty.emojisIndex, function(imageId, imageHtmlId){
+            var $elem = $('#' + imageHtmlId);
+            if (imageId.match(keyword) !== null) {
+                $elem.show();
+            } else {
+                $elem.hide();
+            };
+        });
+    });
 });
