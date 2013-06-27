@@ -869,28 +869,10 @@ Emoty = Ember.Application.create
     "shipit"
   ]
 
-Emoty.Emoji = Ember.Object.extend
-  name: Ember.required
-
-  url: (->
-    "images/emojis/#{@get('name')}.png"
-  ).property('name')
-
-Emoty.EmojisController = Ember.ArrayController.extend
-  content: []
-  query:   null
-
-  result: (->
-    return [] unless query = @get('query')
-
-    @content.filter (emoji) ->
-      emoji.get('name').indexOf(query) != -1
-  ).property('query')
-
 Emoty.IndexRoute = Ember.Route.extend
   model: ->
-      Emoty.emojis.map (emoji) ->
-        Emoty.Emoji.create(name: emoji)
+    Emoty.emojis.map (emoji) ->
+      name: emoji
 
   setupController: (controller, model) ->
     @controllerFor('emojis').set 'model', model
@@ -899,6 +881,36 @@ Emoty.IndexRoute = Ember.Route.extend
     @render 'popup',
     controller: @controllerFor('emojis')
 
+
+Emoty.EmojisController = Ember.ArrayController.extend
+  content: []
+  query:   null
+
+  result: (->
+    query = @get('query')
+    console.log query
+    return @get('content') if Ember.isEmpty(query)
+
+    @filter (emoji) ->
+      emoji.name.indexOf(query) != -1
+  ).property('query')
+
 Emoty.PopupView = Ember.View.extend
-  searchInput: Ember.TextField.extend
-    valueBinding: 'context.query'
+  emojisView: Ember.CollectionView.extend
+    itemViewClass: Ember.View.extend
+      tagName: 'img'
+      attributeBindings: 'src alt'.w()
+      classNameBindings: 'isHide'
+
+      alt: ''
+
+      src: (->
+        "images/emojis/#{@get('content.name')}.png"
+      ).property('content.name')
+
+      isHide: (->
+        query = @get('controller.query')
+        return false if Ember.isEmpty(query)
+
+        @get('content.name').indexOf(query) is -1
+      ).property('controller.query')

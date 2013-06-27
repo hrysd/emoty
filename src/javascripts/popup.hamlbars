@@ -1,16 +1,14 @@
+:sass
+  .is-hide
+    display: none
+
 %header
   %p Emoty
 
 #content
   .searcher
-    = hb 'view view.searchInput'
+    = hb 'input', valueBinding: 'query'
 
-  = hb 'if query' do
-    = hb 'each result' do
-      %img(alt=''){bind: {src: 'url'}}
-
-  = hb 'unless query' do
-    = hb 'each controller' do
-      %img(alt=''){bind: {src: 'url'}}
+  = hb 'collection view.emojisView', contentBinding: 'this'
 
 %input#clipbox{type: 'text', value: '', readonly: 'readonly'}
