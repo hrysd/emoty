@@ -1,3 +1,6 @@
-*.pem
 *.zip
-*.DS_Store
+.sass-cache
+bower_components
+build
+node_modules
+tmp

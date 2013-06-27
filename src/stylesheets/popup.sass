@@ -1,0 +1,97 @@
+html
+  min-height: 101%
+  overflow-y: scroll
+
+body
+  min-width: 590px
+  background: url('../images/stucco.png')
+
+header
+  height: 40px
+  margin: 0 auto
+  position: relative
+
+header > p > a
+  outline: none
+
+header > ul
+  width: 530px
+  background: black
+  height: 34px
+  margin: 0 auto
+  padding: 0
+  list-style-type: none
+
+header > ul > li
+  width: 87px
+  float: left
+  display: block
+  position: relative
+  padding: 7px 0px 3px 0px
+  text-align: center
+  margin: 0 auto
+  color: white
+  text-transform: capitalize
+  border-right: 1px solid gray
+
+  > a
+    color: white
+    text-decoration: none
+
+  &:hover, &.active
+    background: rgb(84, 85, 87)
+
+  &:last-child
+    border-right: none
+
+header > p
+  color: gray
+
+img
+  margin: 7px
+  border: 2px solid rgba(0, 0, 0, 0)
+  vertical-align: middle
+  width: 30px
+  height: auto
+
+img:hover
+  cursor: pointer
+  margin: 5px
+  border: 4px solid orange
+
+.content
+  width: 530px
+  margin: 60px auto
+
+.content > h2
+  text-transform: capitalize
+
+.content > p
+  position: absolute
+  color: black
+  height: 30px
+  text-align: center
+  display: none
+  color: #FFFFFF
+  font-weight: bold
+  font-size: 20px
+  text-shadow: 0px 0px 10px #000000
+
+a
+  text-decoration: none
+
+a:visited
+  text-decoration: none
+
+::-webkit-scrollbar
+  width: 8px
+
+::-webkit-scrollbar-track
+  -webkit-border-radius: 8px
+  border-radius: 8px
+  background: #DDDDDD
+
+::-webkit-scrollbar-thumb
+  -webkit-border-radius: 8px
+  border-radius: 8px
+  background: #AAAAAA
