@@ -1,12 +1,93 @@
-GEM
-  remote: http://rubygems.org/
+GIT
+  remote: git://github.com/livingsocial/rake-pipeline.git
+  revision: 65b1e744defa208e313703d89f3453447cc103b2
   specs:
-    crxmake (2.0.7)
-      zip (~> 2.0.2)
-    zip (2.0.2)
+    rake-pipeline (0.8.0)
+      json
+      rake (~> 10.0.0)
+      thor
+
+GIT
+  remote: git://github.com/tchak/barber.git
+  revision: fe2c2debe4d0b00bddb4d5a6af0bba467a097c95
+  specs:
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source (>= 1.0.0.rc.4)
+
+GIT
+  remote: git://github.com/wycats/rake-pipeline-web-filters.git
+  revision: 31e8a1e779be4e928f510f6f4f481c58cd796800
+  specs:
+    rake-pipeline-web-filters (0.6.0)
+      rack
+      rake-pipeline (~> 0.6)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.0.0)
+      i18n (~> 0.6, >= 0.6.4)
+      minitest (~> 4.2)
+      multi_json (~> 1.3)
+      thread_safe (~> 0.1)
+      tzinfo (~> 0.3.37)
+    atomic (1.1.9)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
+    ember-source (1.0.0.rc6)
+      handlebars-source (= 1.0.0.rc4)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    haml (4.0.3)
+      tilt
+    hamlbars (2.0.1)
+      execjs (>= 1.2)
+      haml
+      sprockets
+      tilt
+    handlebars-source (1.0.0.rc4)
+    hashie (2.0.5)
+    hike (1.2.3)
+    i18n (0.6.4)
+    json (1.8.0)
+    minitest (4.7.5)
+    multi_json (1.7.7)
+    rack (1.5.2)
+    rake (10.0.4)
+    sass (3.2.9)
+    sprockets (2.10.0)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    thor (0.18.1)
+    thread_safe (0.1.0)
+      atomic
+    tilt (1.4.1)
+    tzinfo (0.3.37)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
+    vendorer (0.1.14)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  crxmake
+  activesupport
+  barber!
+  coffee-script
+  ember-source (~> 1.0.0rc)
+  haml
+  hamlbars
+  hashie
+  rake-pipeline!
+  rake-pipeline-web-filters!
+  sass
+  tilt
+  uglifier
+  vendorer

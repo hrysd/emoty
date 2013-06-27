@@ -1,3 +1,5 @@
 *.pem
 *.zip
 *.DS_Store
+tmp
+dist

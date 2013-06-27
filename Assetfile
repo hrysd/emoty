@@ -1,0 +1,84 @@
+require 'active_support/all'
+require 'barber'
+require 'ember/source'
+require 'haml'
+require 'hamlbars'
+require 'handlebars/source'
+require 'hashie'
+require 'json'
+require 'rake-pipeline-web-filters'
+require 'tilt'
+require 'yaml'
+
+Tilt.register Hamlbars::Template, 'hamlbars'
+
+class YamlToJsonFilter < Rake::Pipeline::Filter
+  def initialize(&block)
+    block ||= ->(input) { input.sub(/\.ya?ml$/, '.json') }
+
+    super &block
+  end
+
+  def generate_output(inputs, output)
+    inputs.each do |input|
+      obj = YAML.load_file(input.fullpath)
+      output.write JSON.pretty_generate(obj)
+    end
+  end
+end
+
+output 'dist'
+
+input 'src' do
+  match '*.haml' do
+    tilt do |input|
+      input.sub(/\.haml$/, '.html')
+    end
+  end
+
+  match '*.hamlbars' do
+    tilt do |input|
+      input.sub(/\.hamlbars$/, '.handlebars')
+    end
+  end
+
+  match '*.handlebars' do
+    handlebars wrapper_proc: Barber::Ember::FilePrecompiler
+  end
+
+  match 'manifest.yaml' do
+    filter YamlToJsonFilter
+  end
+
+  match 'javascripts/**/*.coffee' do
+    coffee_script
+  end
+
+  match 'stylesheets' do
+    copy 'stylesheets'
+  end
+
+  match 'images' do
+    copy 'images'
+  end
+end
+
+input 'vendor' do
+  match 'js/**/*.js' do
+    uglify {|input| input }
+    copy 'javascripts/lib/jquery.js'
+  end
+end
+
+input File.dirname(Ember::Source.bundled_path_for('ember.js')) do
+  match 'ember.min.js' do
+    copy 'javascripts/lib/ember.js'
+  end
+end
+
+input File.dirname(Handlebars::Source.bundled_path) do
+  match 'handlebars.runtime.js' do
+    uglify {|input| input }
+    copy 'javascripts/lib/handlebars.js'
+  end
+end

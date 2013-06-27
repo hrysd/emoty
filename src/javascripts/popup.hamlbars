@@ -1,0 +1,16 @@
+%header
+  %p Emoty
+
+#content
+  .searcher
+    = hb 'view view.searchInput'
+
+  = hb 'if query' do
+    = hb 'each result' do
+      %img(alt=''){bind: {src: 'url'}}
+
+  = hb 'unless query' do
+    = hb 'each controller' do
+      %img(alt=''){bind: {src: 'url'}}
+
+%input#clipbox{type: 'text', value: '', readonly: 'readonly'}
