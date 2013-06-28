@@ -8,7 +8,6 @@ icons:
   16:  "images/icons/16.png"
 
 permissions:
-  - '*://*/*'
   - clipboardWrite
 
 browser_action:

@@ -888,7 +888,6 @@ Emoty.EmojisController = Ember.ArrayController.extend
 
   result: (->
     query = @get('query')
-    console.log query
     return @get('content') if Ember.isEmpty(query)
 
     @filter (emoji) ->
@@ -900,7 +899,6 @@ Emoty.PopupView = Ember.View.extend
     itemViewClass: Ember.View.extend
       tagName: 'img'
       attributeBindings: 'src alt'.w()
-      classNameBindings: 'isHide'
 
       alt: ''
 
@@ -908,9 +906,25 @@ Emoty.PopupView = Ember.View.extend
         "images/emojis/#{@get('content.name')}.png"
       ).property('content.name')
 
-      isHide: (->
+      isVisible: (->
         query = @get('controller.query')
-        return false if Ember.isEmpty(query)
+        return true if Ember.isEmpty(query)
 
-        @get('content.name').indexOf(query) is -1
+        @get('content.name').indexOf(query) != -1
       ).property('controller.query')
+
+      #TODO なんとかしたい
+      click: ->
+        @_copy ":#{@get('content.name')}:"
+
+      _copy: (text) ->
+        clip = $('.clipbox')[0]
+        clip.value = text
+        clip.select()
+        document.execCommand('copy')
+
+  clipbox: Ember.TextField.extend
+    attributeBindings: 'value readonly'.w()
+    classNames: 'clipbox'.w()
+    value: ''
+    readonly: true

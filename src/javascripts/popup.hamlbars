@@ -1,7 +1,3 @@
-:sass
-  .is-hide
-    display: none
-
 %header
   %p Emoty
 
@@ -11,4 +7,4 @@
 
   = hb 'collection view.emojisView', contentBinding: 'this'
 
-%input#clipbox{type: 'text', value: '', readonly: 'readonly'}
+= hb 'view view.clipbox'
