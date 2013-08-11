@@ -1,3 +1,0 @@
-folder 'vendor/js' do
-  file 'jquery.js',     'http://code.jquery.com/jquery-2.0.2.js'
-end

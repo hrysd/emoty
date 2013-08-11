@@ -1,6 +1,6 @@
-*.pem
 *.zip
-*.DS_Store
-tmp
-dist
 .sass-cache
+bower_components
+build
+node_modules
+tmp

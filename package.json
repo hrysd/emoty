@@ -1,0 +1,34 @@
+{
+  "name": "emoty",
+  "version": "0.2.0",
+  "description": "Emoji cheet sheat for Chrome",
+  "main": "",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "coffee-script": "",
+    "grunt": "",
+    "grunt-contrib-clean": "",
+    "grunt-contrib-coffee": "",
+    "grunt-contrib-compress": "",
+    "grunt-contrib-copy": "",
+    "grunt-contrib-sass": "",
+    "grunt-contrib-uglify": "",
+    "grunt-ember-templates": "0.4.9",
+    "grunt-haml": "",
+    "grunt-hamlbars": "",
+    "grunt-shell": "",
+    "grunt-yaml": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "private": false,
+  "gitHead": "",
+  "readmeFilename": "README.md"
+}
+
