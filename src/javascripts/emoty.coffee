@@ -887,28 +887,36 @@ Emoty.EmojisController = Ember.ArrayController.extend
   query:   null
 
 Emoty.PopupView = Ember.View.extend
-  emojisView: Ember.CollectionView.extend
-    itemViewClass: Ember.View.extend
+  emojisView: Ember.ListView.extend
+    height: 500
+    width: 500
+    rowHeight: 40
+    elementWidth: 40
+
+    itemViewClass: Ember.ListItemView.extend
       tagName: 'a'
       attributeBindings: 'href'.w()
+      template: Ember.Handlebars.compile '''
+        <img alt='' {{bindAttr src='view.src'}}>
+      '''
 
       href: '#'
 
       src: (->
-        "images/emojis/#{@get('content.name')}.png"
-      ).property('content.name')
+        "images/emojis/#{@get('context.name')}.png"
+      ).property('context.name')
 
       isVisible: (->
         query = @get('controller.query')
         return true if Ember.isEmpty(query)
 
-        @get('content.name').indexOf(query) != -1
+        @get('context.name').indexOf(query) != -1
       ).property('controller.query')
 
       click: (e) ->
         do e.preventDefault
 
-        @_copy ":#{@get('content.name')}:"
+        @_copy ":#{@get('context.name')}:"
 
         do window.close
 

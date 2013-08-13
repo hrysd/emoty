@@ -10,6 +10,8 @@ icons:
 permissions:
   - clipboardWrite
 
+content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
 browser_action:
   default_icon:  "images/icons/19.png"
   default_title: "Emoty"

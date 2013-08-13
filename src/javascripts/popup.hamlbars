@@ -5,5 +5,4 @@
   .searcher
     = hb 'input', valueBinding: 'query'
 
-  = hb 'collection view.emojisView', contentBinding: 'this' do
-    %img(alt=''){bind: {src: 'view.src'}}
+  = hb 'view view.emojisView', contentBinding: 'controller'
