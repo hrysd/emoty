@@ -10,8 +10,8 @@
   ],
   "dependencies": {
     "jquery":          "2.0.2",
-    "ember":           "http://builds.emberjs.com.s3.amazonaws.com/ember-1.0.0-rc.6.js",
-    "handlebars":      "1.0.0-rc.4",
+    "ember":           "http://builds.emberjs.com.s3.amazonaws.com/ember-1.0.0-rc.7.js",
+    "handlebars":      "1.0.0",
     "ember-list-view": "http://builds.emberjs.com/list-view/list-view-latest.js"
   }
 }

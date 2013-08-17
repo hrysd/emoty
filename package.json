@@ -15,7 +15,7 @@
     "grunt-contrib-copy": "",
     "grunt-contrib-sass": "",
     "grunt-contrib-uglify": "",
-    "grunt-ember-templates": "0.4.9",
+    "grunt-ember-templates": "0.4.10",
     "grunt-haml": "",
     "grunt-hamlbars": "",
     "grunt-shell": "",

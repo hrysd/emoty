@@ -870,12 +870,11 @@ Emoty = Ember.Application.create
   ]
 
 Emoty.IndexRoute = Ember.Route.extend
+  controllerName: 'emojis'
+
   model: ->
     Emoty.emojis.map (emoji) ->
       name: emoji
-
-  setupController: (controller, model) ->
-    @controllerFor('emojis').set 'model', model
 
   renderTemplate: ->
     @render 'popup',
@@ -889,7 +888,7 @@ Emoty.EmojisController = Ember.ArrayController.extend
 Emoty.PopupView = Ember.View.extend
   emojisView: Ember.ListView.extend
     height: 500
-    width: 500
+    width: 300
     rowHeight: 40
     elementWidth: 40
 
