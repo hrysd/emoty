@@ -64,7 +64,6 @@ module.exports = (grunt) ->
         files: [
           {src: 'bower_components/jquery/jquery.js',         dest: 'tmp/build/javascripts/jquery.js'}
           {src: 'bower_components/ember/index.js',           dest: 'tmp/build/javascripts/ember.js'}
-          {src: 'bower_components/ember-list-view/index.js', dest: 'tmp/build/javascripts/ember-list-view.js'}
           {src: 'bower_components/handlebars/handlebars.js', dest: 'tmp/build/javascripts/handlebars.js'}
         ]
 

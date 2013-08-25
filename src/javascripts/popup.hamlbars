@@ -5,4 +5,6 @@
   .searcher
     = hb 'input', valueBinding: 'query'
 
-  = hb 'view view.emojisView', contentBinding: 'controller'
+  = hb 'each controller' do
+    %h2= hb 'name'
+    = hb 'view view.categoriesView', contentBinding: 'emoticons'
