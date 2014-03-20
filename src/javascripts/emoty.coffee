@@ -19,7 +19,7 @@ Emoty.PopupView = Ember.View.extend
       tagName: 'a'
       attributeBindings: 'href'.w()
       template: Ember.Handlebars.compile '''
-        <img alt='' {{bindAttr src='view.src'}}>
+        <img alt='' {{bind-attr src='view.src'}}>
       '''
 
       href: '#'
