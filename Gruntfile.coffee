@@ -49,22 +49,12 @@ module.exports = (grunt) ->
         command: 'bower install'
         options:
           stdout: true
-
-    sass:
-      dist:
-        files: [
-          expand: true, cwd: 'src/', src: 'stylesheets/*.sass', dest: 'tmp/build/', ext: '.css'
-        ]
-
-        options:
-          bundleExec: true
-
     copy:
       components:
         files: [
-          {src: 'bower_components/jquery/jquery.js',         dest: 'tmp/build/javascripts/jquery.js'}
-          {src: 'bower_components/ember/index.js',           dest: 'tmp/build/javascripts/ember.js'}
-          {src: 'bower_components/handlebars/handlebars.js', dest: 'tmp/build/javascripts/handlebars.js'}
+          {src: 'bower_components/jquery/jquery.js',             dest: 'tmp/build/javascripts/jquery.js'}
+          {src: 'bower_components/ember/ember.js',               dest: 'tmp/build/javascripts/ember.js'}
+          {src: 'bower_components/handlebars/handlebars.js',     dest: 'tmp/build/javascripts/handlebars.js'}
         ]
 
       build:
@@ -90,7 +80,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-ember-templates'
   grunt.loadNpmTasks 'grunt-haml'
@@ -107,7 +96,6 @@ module.exports = (grunt) ->
       'haml'
       'hamlbars'
       'emberTemplates'
-      'sass'
       'copy'
     ]
 
