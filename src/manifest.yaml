@@ -1,0 +1,18 @@
+name: Emoty
+version: 0.9.0
+manifest_version: 2
+
+icons:
+  128: "images/icons/128.png"
+  48:  "images/icons/48.png"
+  16:  "images/icons/16.png"
+
+permissions:
+  - clipboardWrite
+
+content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
+browser_action:
+  default_icon:  "images/icons/19.png"
+  default_title: "Emoty"
+  default_popup: "popup.html"

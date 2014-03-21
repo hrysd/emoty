@@ -1,0 +1,10 @@
+%header
+  %p Emoty
+
+#content
+  .searcher
+    = hb 'input', valueBinding: 'query'
+
+  = hb 'each controller' do
+    %h2= hb 'name'
+    = hb 'view view.categoriesView', contentBinding: 'emoticons'
