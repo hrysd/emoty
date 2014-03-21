@@ -49,6 +49,16 @@ module.exports = (grunt) ->
         command: 'bower install'
         options:
           stdout: true
+
+    sass:
+      dist:
+        files: [
+          expand: true, cwd: 'src/', src: 'stylesheets/*.sass', dest: 'tmp/build/', ext: '.css'
+        ]
+
+        options:
+          bundleExec: true
+
     copy:
       components:
         files: [
@@ -80,6 +90,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-ember-templates'
   grunt.loadNpmTasks 'grunt-haml'
@@ -96,6 +107,7 @@ module.exports = (grunt) ->
       'haml'
       'hamlbars'
       'emberTemplates'
+      'sass'
       'copy'
     ]
 

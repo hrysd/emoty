@@ -14,6 +14,7 @@
     "grunt-contrib-compress": "",
     "grunt-contrib-copy": "",
     "grunt-contrib-uglify": "",
+    "grunt-contrib-sass": "",
     "grunt-ember-templates": "",
     "grunt-haml": "",
     "grunt-hamlbars": "",
