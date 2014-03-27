@@ -13,6 +13,7 @@
   = hb 'input value=query'
 
   = hb 'each' do
-    %h2= hb 'name'
+    = hb 'unless isEmpty' do
+      %h2= hb 'name'
 
-    = hb 'collection view.emoticonsView content=results'
+      = hb 'collection view.emoticonsView content=results'

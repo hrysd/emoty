@@ -19,7 +19,8 @@ Emoty.CategoriesController = Ember.ArrayController.extend
 
 Emoty.CategoryController = Ember.ObjectController.extend
   categories: Ember.computed.alias('parentController')
-  query: Ember.computed.alias('parentController.query')
+  query:      Ember.computed.alias('parentController.query')
+  isEmpty:    Ember.computed.empty('results')
 
   selected: true
 
@@ -40,7 +41,8 @@ Emoty.PopupView = Ember.View.extend
   emoticonsView: Ember.CollectionView.extend
     itemViewClass: Ember.View.extend
       tagName: 'a'
-      href: '#'
+      href:    '#'
+
       attributeBindings: 'href'.w()
 
       template: Ember.Handlebars.compile '''
