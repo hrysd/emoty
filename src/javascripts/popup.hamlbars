@@ -1,6 +1,14 @@
 %header
   %h1 Emoty
 
+  %ul
+    %li
+      %a(href=''){_action: 'reset'} All
+
+    = hb 'each' do
+      %li
+        %a(href=''){_action: 'select'}= hb 'name'
+
 .content
   = hb 'input value=query'
 

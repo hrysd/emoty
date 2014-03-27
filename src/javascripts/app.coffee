@@ -13,15 +13,28 @@ Emoty.CategoriesController = Ember.ArrayController.extend
 
   query: ''
 
+  actions:
+    reset: ->
+      @setEach 'selected', true
+
 Emoty.CategoryController = Ember.ObjectController.extend
+  categories: Ember.computed.alias('parentController')
   query: Ember.computed.alias('parentController.query')
 
+  selected: true
+
   results: (->
+    return [] unless @get('selected')
     return @get('emoticons') if Ember.isEmpty(@get('query'))
 
     @get('emoticons').filter (emoticon) =>
       emoticon.indexOf(@get('query')) != -1
-  ).property('query')
+  ).property('query', 'selected')
+
+  actions:
+    select: ->
+      @get('categories').setEach 'selected', false
+      @set 'selected', true
 
 Emoty.PopupView = Ember.View.extend
   emoticonsView: Ember.CollectionView.extend
