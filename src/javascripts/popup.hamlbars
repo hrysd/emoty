@@ -1,0 +1,10 @@
+%header
+  %h1 Emoty
+
+.content
+  = hb 'input value=query'
+
+  = hb 'each' do
+    %h2= hb 'name'
+
+    = hb 'collection view.emoticonsView content=results'
