@@ -1,0 +1,23 @@
+{
+  "name": "emoty",
+  "version": "1.0.0",
+  "description": "Emoji cheet sheat for Chrome",
+  "main": "index.js",
+  "dependencies": {
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-compress": "~0.7.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-haml": "~0.9.0",
+    "grunt": "~0.4.4",
+    "grunt-yaml": "~0.4.0"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hrysd",
+  "license": "MIT"
+}
