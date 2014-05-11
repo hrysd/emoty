@@ -83,3 +83,4 @@ module.exports = (grunt) ->
     grunt.task.run tasks
 
   grunt.registerTask 'default', ['build']
+  grunt.registerTask 'release', ['build', 'compress']
