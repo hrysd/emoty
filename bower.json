@@ -1,0 +1,19 @@
+{
+  "name": "emoty",
+  "version": "1.0.0",
+  "authors": [
+    "hrysd"
+  ],
+  "description": "Emoji cheet sheat for Chrome",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}
