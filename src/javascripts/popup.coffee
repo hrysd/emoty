@@ -1,4 +1,7 @@
 $ ->
+  contentTiming = 100
+  delay = 700
+
   $.each window.emoticons, (_, category) ->
     $('#category-nav').append """
       <li>#{category.name}</li>
@@ -12,22 +15,26 @@ $ ->
         .text category.name
     )
 
-    $.each category.emoticons, (_, emoticon) ->
-      content.append(
-        $('<img>')
-          .attr
-            src:   "images/emoticons/#{emoticon}.png"
-            class: 'emoticon'
-            alt:    emoticon
-          .data emoticon: ":#{emoticon}:"
-      )
+    setTimeout ->
+      $.each category.emoticons, (_, emoticon) ->
+        content.append(
+          $('<img>')
+            .attr
+              src:   "images/emoticons/#{emoticon}.png"
+              class: 'emoticon'
+              alt:    emoticon
+            .data emoticon: ":#{emoticon}:"
+        )
+    , contentTiming
+
+    contentTiming += delay
 
     $('#emoticons').append content
 
-  $('#emoticons img')
-    .on 'click', ->
+  $(document)
+    .on 'click', '#emoticons img', ->
       Emoty.copy $(@).data('emoticon')
-    .on 'mouseenter', ->
+    .on 'mouseenter', '#emoticons img', ->
       do ($ '.title').hide
 
       ($ '.notice')
@@ -35,7 +42,7 @@ $ ->
         .append """
           <p>#{$(@).data('emoticon')}</p>
         """
-    .on 'mouseleave', ->
+    .on 'mouseleave', '#emoticons img', ->
       do $('.title').show
 
       $('.notice')
