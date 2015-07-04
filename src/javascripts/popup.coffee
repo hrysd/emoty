@@ -7,7 +7,8 @@ $ ->
       <li>#{category.name}</li>
     """
 
-    content = $('<div>').append(
+    fragment = document.createDocumentFragment()
+    content = $(fragment).append(
       $('<h3>')
         .attr
           id:    category.name
@@ -15,21 +16,21 @@ $ ->
         .text category.name
     )
 
+    $.each category.emoticons, (_, emoticon) ->
+      content.append(
+        $('<img>')
+          .attr
+            src:   "images/emoticons/#{emoticon}.png"
+            class: 'emoticon'
+            alt:    emoticon
+          .data emoticon: ":#{emoticon}:"
+      )
+
     setTimeout ->
-      $.each category.emoticons, (_, emoticon) ->
-        content.append(
-          $('<img>')
-            .attr
-              src:   "images/emoticons/#{emoticon}.png"
-              class: 'emoticon'
-              alt:    emoticon
-            .data emoticon: ":#{emoticon}:"
-        )
+      $('#emoticons').append fragment
     , contentTiming
 
     contentTiming += delay
-
-    $('#emoticons').append content
 
   $(document)
     .on 'click', '#emoticons img', ->
