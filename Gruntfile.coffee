@@ -3,8 +3,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-sass'
-  grunt.loadNpmTasks 'grunt-haml'
+  grunt.loadNpmTasks 'grunt-sass'
   grunt.loadNpmTasks 'grunt-yaml'
 
   grunt.initConfig
@@ -26,28 +25,16 @@ module.exports = (grunt) ->
           expand: true, cwd: 'src/', src: ['**/*.yml', '**/*.yaml'], dest: 'tmp/build/'
         ]
 
-    haml:
-      default:
-        files: [
-          expand: true, cwd: 'src/', src: '**/*.haml', dest: 'tmp/build/', ext: '.html'
-        ]
-
-      options:
-        language:        'ruby'
-        rubyHamlCommand: 'bundle exec haml'
-
     sass:
       default:
         files: [
           expand: true, cwd: 'src/', src: 'stylesheets/*.sass', dest: 'tmp/build/', ext: '.css'
         ]
 
-      options:
-        bundleExec: true
-
     copy:
       components:
         files: [
+          {src: 'src/popup.html',                         dest: 'tmp/build/popup.html'}
           {src: 'bower_components/jquery/dist/jquery.js', dest: 'tmp/build/javascripts/jquery.js'}
         ]
 
@@ -75,7 +62,6 @@ module.exports = (grunt) ->
       'clean'
       'coffee'
       'yaml'
-      'haml'
       'sass'
       'copy'
     ]
