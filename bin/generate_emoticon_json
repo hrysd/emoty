@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const fs      = require('fs'),
+      path    = require('path'),
+      cheerio = require('cheerio');
+
+const PATH = 'vendor/emoji-cheat-sheet.com/public/index.html'
+
+let root = path.resolve(process.argv[1], '../..'),
+    html = fs.readFileSync(path.join(root, PATH)),
+    $    = cheerio.load(html);
+
+let emoticons = {
+  people:  [],
+  nature:  [],
+  objects: [],
+  places:  [],
+  symbols: []
+}
+
+Object.keys(emoticons).forEach(function(category) {
+  $(`#emoji-${category} li span`).each(function(i, span) {
+    emoticons[category].push(cheerio(span).text());
+  })
+});
+
+fs.writeFile(path.join(root, 'src', 'javascripts', 'emoticons.json'), JSON.stringify(emoticons, null, '  '));
