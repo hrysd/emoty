@@ -55,6 +55,6 @@ $(function() {
   $('li.category').on('click', function() {
     let scrollTo = $(`#${$(this).text()}`).offset().top
 
-    $(document.body).animate({scrollTop: scrollTo - 50});
+    $(document.body).animate({scrollTop: scrollTo - 100});
   });
 });
