@@ -13,11 +13,11 @@ $(function() {
         efragment = document.createDocumentFragment();
 
     $(fragment).append(`<h3 id='${category}' class='category-name'>${category}</h3>`);
-    $(fragment).append('<div class="emoticons"></div>')
+    $(fragment).append('<div class="emoticons"></div>');
 
     emoticons[category].forEach(function(emoticon) {
       let attributes = {
-        class: `${emoticon} emoticon`,
+        class: `e-${emoticon} emoticon`,
         alt:   emoticon
       };
       let image = $('<p>').attr(attributes).data({emoticon: `:${emoticon}:`});

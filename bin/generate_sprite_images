@@ -16,7 +16,8 @@ spriteGenerator({
   stylesheet:     'css',
   stylesheetPath: path.join(root, BUILD_DIR, 'stylesheets', 'all-emoticons.css'),
   stylesheetOptions: {
-    pixelRatio: 2
+    pixelRatio: 2,
+    prefix: 'e-'
   }
 }, function(err) {
   if (err) {
