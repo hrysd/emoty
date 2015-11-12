@@ -20,6 +20,9 @@
     "build:static": "cp ./src/popup.html ./src/manifest.json ./build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "hrysd",
+  "author": {
+    "name": "Hiroshi Yoshida",
+    "url": "https://github.com/hrysd"
+  },
   "license": "MIT"
 }
