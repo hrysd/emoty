@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const path            = require('path'),
+      spriteGenerator = require('node-sprite-generator');
+
+const IMAGE_PATH = 'vendor/emoji-cheat-sheet.com/public/graphics/emojis/*.png',
+      BUILD_DIR  = 'build';
+
+let root = path.resolve(process.argv[1], '../..');
+
+spriteGenerator({
+  src:            [IMAGE_PATH],
+  spritePath:     path.join(root, BUILD_DIR, 'images', 'all-emoticons.png'),
+  stylesheet:     'css',
+  stylesheetPath: path.join(root, BUILD_DIR, 'stylesheets', 'all-emoticons.css'),
+  stylesheetOptions: {
+    pixelRatio: 2,
+    prefix: 'e-'
+  }
+}, function(err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Generated');
+  }
+});

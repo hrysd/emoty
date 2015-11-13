@@ -1,0 +1,3 @@
+[submodule "vendor/emoji-cheat-sheet.com"]
+	path = vendor/emoji-cheat-sheet.com
+	url = git@github.com:arvida/emoji-cheat-sheet.com.git
