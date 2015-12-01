@@ -7,6 +7,19 @@ Click the emoji and it will be copied to your clipboard.
 
 [Download from here!](https://chrome.google.com/webstore/detail/emoty/kgljgnbhcigffgoifhjbbifhbdkapmgm?hl=ja&gl=JP)
 
+# Development
+
+**Requirements:**
+
+- Node.js
+- [Dependencies of node-sprite-generator](https://github.com/selaux/node-sprite-generator#installation)
+
+First, clone this repository then following commands.
+
+```
+npm run build
+```
+
 # Original project.
 Original project is [here](https://github.com/arvida/emoji-cheat-sheet.com).
 Thanks.
