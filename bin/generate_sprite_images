@@ -11,6 +11,7 @@ const IMAGE_PATH = 'vendor/emoji-cheat-sheet.com/public/graphics/emojis/*.png',
 let root = path.resolve(process.argv[1], '../..');
 
 spriteGenerator({
+  compositor:     'gm',
   src:            [IMAGE_PATH],
   spritePath:     path.join(root, BUILD_DIR, 'images', 'all-emoticons.png'),
   stylesheet:     'css',
