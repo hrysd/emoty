@@ -4,7 +4,9 @@
   "description": "Emoji cheet sheat for Chrome",
   "main": "index.js",
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.9.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+    "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "bower": "^1.7.9",
     "browserify": "^13.0.1",
@@ -26,5 +28,9 @@
     "name": "Hiroshi Yoshida",
     "url": "https://github.com/hrysd"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
 }
