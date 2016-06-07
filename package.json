@@ -18,7 +18,7 @@
   "scripts": {
     "build": "npm run build:before && npm run build:javascript && npm run build:stylesheet && npm run build:image && npm run build:static",
     "build:before": "rm -rf ./build && mkdir -p ./build/{javascripts,stylesheets,images} && bower install",
-    "build:javascript": "browserify -t [ babelify --compact false ] src/javascripts/popup.js -o ./build/javascripts/popup.js",
+    "build:javascript": "browserify -t [ babelify --compact false ] src/javascripts/main.js -o ./build/javascripts/bundle.js",
     "build:stylesheet": "node-sass src/stylesheets/popup.sass -o ./build/stylesheets/",
     "build:image": "./bin/generate_sprite_images && cp -r ./src/images/icons ./build/images/",
     "build:static": "cp ./src/popup.html ./src/manifest.json ./build/",
