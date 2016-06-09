@@ -10,11 +10,13 @@ const EmoticonList = ({dispatcher, category, emoticons}) => {
   }
 
   const emoticonNodes = emoticons.map((emoticon) => {
-    return <Emoticon
-      emoticon={emoticon}
-      onMouseEnter={() => onMouseEnter(emoticon)}
-      onMouseLeave={() => onMouseLeave()}
-    />;
+    return (
+      <Emoticon
+        emoticon={emoticon}
+        onMouseEnter={() => onMouseEnter(emoticon)}
+        onMouseLeave={() => onMouseLeave()}
+      />
+    );
   });
 
   return (
