@@ -1,9 +1,13 @@
 import * as React from 'react';
 
-const SearchForm = () => {
+const SearchForm = ({dispatcher}) => {
+  const onChange = (e) => {
+    dispatcher.emit('search', e.target.value);
+  };
+
   return (
     <form>
-      <input type='text' placeholder='search...'/>
+      <input type='text' onChange={onChange} placeholder='search...'/>
     </form>
   );
 }

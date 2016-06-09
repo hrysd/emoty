@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const EmoticonList = ({dispatcher, category, emoticons}) => {
   const onMouseEnter = (emoticon) => {
-    dispatcher.emit('update-title', emoticon)
+    dispatcher.emit('update-title', emoticon);
   }
 
   const onMouseLeave = () => {
@@ -12,6 +12,7 @@ const EmoticonList = ({dispatcher, category, emoticons}) => {
   const emoticonNodes = emoticons.map((emoticon) => {
     return (
       <Emoticon
+        key={emoticon}
         emoticon={emoticon}
         onMouseEnter={() => onMouseEnter(emoticon)}
         onMouseLeave={() => onMouseLeave()}
