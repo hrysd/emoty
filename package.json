@@ -13,15 +13,17 @@
     "cheerio": "^0.20.0",
     "debowerify": "^1.3.1",
     "node-sass": "^3.3.3",
-    "node-sprite-generator": "0.10.2"
+    "node-sprite-generator": "0.10.2",
+    "watchify": "^3.7.0"
   },
   "scripts": {
     "build": "npm run build:before && npm run build:javascript && npm run build:stylesheet && npm run build:image && npm run build:static",
     "build:before": "rm -rf ./build && mkdir -p ./build/{javascripts,stylesheets,images} && bower install",
-    "build:javascript": "browserify -t [ babelify --compact false ] src/javascripts/main.js -o ./build/javascripts/bundle.js",
+    "build:javascript": "browserify ./src/javascripts/main.js -o ./build/javascripts/bundle.js",
     "build:stylesheet": "node-sass src/stylesheets/popup.sass -o ./build/stylesheets/",
     "build:image": "./bin/generate_sprite_images && cp -r ./src/images/icons ./build/images/",
     "build:static": "cp ./src/popup.html ./src/manifest.json ./build/",
+    "build:watch": "watchify ./src/javascripts/main.js -o ./build/javascripts/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -32,5 +34,10 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
