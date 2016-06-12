@@ -1,13 +1,11 @@
 import * as React from 'react';
 
 const Header = ({title, categories, children}) => {
-  const defaultText = (
-    ['Emoty', <a href="http://www.emoji-cheat-sheet.com">Emoji Cheat Sheet</a>, 'for Chrome.']
-  );
-
   return (
     <header>
-      <h1>{title || defaultText}</h1>
+      <h1>{
+        title || ['Emoty', <a key='h1' href="http://www.emoji-cheat-sheet.com">Emoji Cheat Sheet</a>, 'for Chrome.']
+      }</h1>
 
       {children}
     </header>
