@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const Header = ({title, categories, children}) => {
   const defaultText = (
-    Emoty <a href="http://www.emoji-cheat-sheet.com">Emoji Cheat Sheet</a> for Chrome.
+    ['Emoty', <a href="http://www.emoji-cheat-sheet.com">Emoji Cheat Sheet</a>, 'for Chrome.']
   );
 
   return (
