@@ -1,21 +1,14 @@
 import * as React from 'react';
 
+import Emoticon from './Emoticon';
+
 const EmoticonList = ({dispatcher, category, emoticons}) => {
-  const onMouseEnter = (emoticon) => {
-    dispatcher.emit('update-title', emoticon);
-  }
-
-  const onMouseLeave = () => {
-    dispatcher.emit('update-title', null);
-  }
-
   const emoticonNodes = emoticons.map((emoticon) => {
     return (
       <Emoticon
         key={emoticon}
         emoticon={emoticon}
-        onMouseEnter={() => onMouseEnter(emoticon)}
-        onMouseLeave={() => onMouseLeave()}
+        dispatcher={dispatcher}
       />
     );
   });
@@ -26,19 +19,6 @@ const EmoticonList = ({dispatcher, category, emoticons}) => {
 
       {emoticonNodes}
     </div>
-  );
-}
-
-const Emoticon = ({onMouseEnter, onMouseLeave, emoticon}) => {
-  const className = `e-${emoticon} emoticon`;
-
-  return (
-    <p
-      className={className}
-      alt={emoticon}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    ></p>
   );
 }
 
